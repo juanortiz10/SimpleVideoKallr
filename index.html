@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="no title">
+    <link rel="stylesheet" href="node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css" media="screen" title="no title">
+    <link rel="stylesheet" href="node_modules/bootstrap-material-design/dist/css/ripples.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>Video Kallr</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>VideoKallr</h1>
+      </div>
+      <div class="row">
+        <div class="input-box">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form class="form-horizontal" name="loginForm" id="login" action="#" onsubmit="return login(this);">
+                <fieldset>
+                  <div class="form-group">
+                    <label for="inputUsername" class="col-md-4 control-label">Usuario: </label>
+                    <div class="col-md-5">
+                      <input type="text" required class="form-control" id="inputUsername" placeholder="Ingresa tu nombre de usuario">
+                    </div>
+                  </div>
+                  <button type="submit" id="usernameSubmit" class="btn btn-default center"><img src="https://maxcdn.icons8.com/Android_L/PNG/36/User_Interface/login_rounded_right-36.png" title="Login Rounded Right" width="36"></button>
+                </fieldset>
+              </form>
+              <form class="form-horizontal" name="callForm" id="call" action="#" onsubmit="return makeCall(this);">
+                <fieldset>
+                  <div class="form-group">
+                    <label for="inputCall" class="col-md-4 control-label">Contacto: </label>
+                    <div class="col-md-5">
+                      <input type="text" required class="form-control"  name="number" id="inputCall"  placeholder="Ingresa el usuario a contactar">
+                    </div>
+                  </div>
+                  <button type="submit" name="button" class="btn btn-default center"><img src="https://maxcdn.icons8.com/Android_L/PNG/36/Business/voice_presentation-36.png" title="Voice Presentation" width="36"></button>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button"><span aria-hidden="true">&times;</span></button>
+              <h3 class="modal-title" id="myModalLabel">Información</h3>
+            </div>
+            <div class="modal-body">
+              <h4>Para realizar una llamada..</h4>
+              <ol>
+                <li>Ingrese un usuario válido</li>
+                <li>Click en el botón de ingresar</li>
+                <li>Si es usuario válido, teclear el usuario a llamar</li>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Cerrar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" name="button">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="created-by">Creado por Juan José Ortiz</p>
+    </div>
+      <div class="fab">
+          <a class="btn btn-danger btn-fab" data-toggle="modal" data-target="#myModal">
+            <img class="fabIcon" src="images/info.png" title="Information" width="24">
+          </a>
+      </div>
+    </div>
+    <div id="vid-box"></div>
+    <div id="vid-thumb"></div>
+    <div id="inCall"> <!-- Buttons for in call features -->
+	     <button class="btn btn-danger btn-fab" id="end" onclick="end()">
+         <img src="images/end.png" alt="End" />
+       </button>
+       <button class="btn btn-info btn-fab" id="mute" onclick="mute()">
+         <img id="mute-image" src="images/mute.png" alt="Mute" />
+       </button>
+       <button class="btn btn-success btn-fab" id="pause" onclick="pause()">
+         <img id="pause-image" src="images/pause.png" alt="Pause" />
+       </button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap-material-design/dist/js/material.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap-material-design/dist/js/ripples.js"></script>
+    <script src="js/webrtc.js"></script>
+    <script src="js/rtc-controler.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+      $.material.init();
+    </script>
+  </body>
+</html>
